@@ -16,7 +16,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 
-public abstract class AvenstackReport {
+public class AvenstackReport {
 	protected WebDriver driver;
 	protected Actions actions;
 	protected ExtentReports report;

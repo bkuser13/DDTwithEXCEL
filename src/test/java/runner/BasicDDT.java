@@ -22,6 +22,8 @@ import com.prestashop.pages.GasMilageCalculatorPage;
 import com.prestashop.utilities.ConfigurationReader;
 import com.prestashop.utilities.Driver;
 
+import pages.SalaryCalculatorPage;
+
 public class BasicDDT {
 
 	WebDriver driver;
@@ -29,7 +31,7 @@ public class BasicDDT {
 	Sheet worksheet;
 	FileInputStream inStream;
 	FileOutputStream outStream;
-	GasMilageCalculatorPage page;
+	SalaryCalculatorPage page;
 	public static final int CURRENT_OD_COLUMN = 1;
 	public static final int PREV_OD_COLUMN = 2;
 	public static final int GAS_COLUMN = 3;

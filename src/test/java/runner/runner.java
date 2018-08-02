@@ -1,6 +1,9 @@
 package runner;
 
 import org.testng.annotations.Test;
+
+import com.beust.jcommander.Parameter;
+
 import pages.SalaryCalculatorPage;
 import utilities.AvenstackReport;
 import utilities.BrowserUtils;
@@ -36,8 +39,15 @@ public class runner extends AvenstackReport {
 		extentLogger.assignAuthor("Bolot Kadyraliev");
 		extentLogger.info("Reading From Excel Test case");
 
-		
-
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
