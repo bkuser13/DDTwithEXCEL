@@ -23,6 +23,7 @@ import com.prestashop.utilities.ConfigurationReader;
 import com.prestashop.utilities.Driver;
 
 import pages.SalaryCalculatorPage;
+import utilities.ConfigReader;
 
 public class BasicDDT {
 
@@ -38,10 +39,10 @@ public class BasicDDT {
 
 	@BeforeClass
 	public void setUp() throws Exception {
-		inStream = new FileInputStream(ConfigurationReader.getProperty("gasmileage.test.data.path"));
+		inStream = new FileInputStream(ConfigReader.getValue("gasmileage.test.data.path"));
 		workbook = WorkbookFactory.create(inStream);
 		worksheet = workbook.getSheetAt(0);
-		driver = Driver.getDriver();
+		driver = utilities.Driver.getDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().fullscreen();
 		driver.get("https://www.calculator.net/gas-mileage-calculator.html");
@@ -50,7 +51,7 @@ public class BasicDDT {
 
 	@AfterClass
 	public void tearDown() throws IOException {
-		outStream = new FileOutputStream(ConfigurationReader.getProperty("gasmileage.test.data.path"));
+		outStream = new FileOutputStream(ConfigReader.getValue("gasmileage.test.data.path"));
 		workbook.write(outStream);
 		outStream.close();
 		workbook.close();
@@ -80,7 +81,7 @@ public class BasicDDT {
 			double previousOr = currentRow.getCell(PREV_OD_COLUMN).getNumericCellValue();
 			double gas = currentRow.getCell(GAS_COLUMN).getNumericCellValue();
 
-			page = new GasMilageCalculatorPage();
+			page = new SalaryCalculatorPage();
 			page.currentOdometer.clear();
 			page.currentOdometer.sendKeys(String.valueOf(currentOr));
 			page.previousOdometer.clear();
